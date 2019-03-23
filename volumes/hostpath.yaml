@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: redis
+  name: redis
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: redis
+  template:
+    metadata:
+      labels:
+        run: redis
+    spec:
+      containers:
+      - image: redis
+        name: redis
+        volumeMounts:
+        - name: hp
+          mountPath: /tmp/
+      volumes:
+      - name: hp
+        hostPath:
+          path: /tmp

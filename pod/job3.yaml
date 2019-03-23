@@ -1,0 +1,18 @@
+#kubectl run busybox --image=busybox --restart=OnFailure -o yaml --dry-run
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    run: busybox
+  name: busybox
+spec:
+  template:
+    metadata:
+      labels:
+        run: busybox
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command: ["echo", "hello world"]
+      restartPolicy: OnFailure

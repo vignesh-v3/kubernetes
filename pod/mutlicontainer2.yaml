@@ -1,3 +1,4 @@
+#kubectl run --generator=run-pod/v1 nginx --image-nginx -o yaml --export --dry-run
 apiVersion: v1
 kind: Pod
 metadata:
@@ -8,3 +9,5 @@ spec:
   containers:
   - image: nginx
     name: nginx
+  - image: redis
+    name: redis

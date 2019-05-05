@@ -8,3 +8,6 @@ spec:
     pods: "1"
     requests.cpu: "2"
     limits.cpu: "6"
+    configmaps: "3"
+    services: "2"
+    persistenntvolumeclaims: "1"

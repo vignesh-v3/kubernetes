@@ -6,12 +6,15 @@ metadata:
 spec:
   template:
     metadata:
-      name: nginx-controller
+      labels:
+        name: nginx-controller
     spec:
       containers:
         - name: nginx-controller
           image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0
+          args:
+            - /nginx-ingress-controller
   replicas: 1
   selector:
     matchLabels:
-      nginx: nginx- controller
+      name: nginx-controller

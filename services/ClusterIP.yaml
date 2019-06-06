@@ -16,8 +16,9 @@ metadata:
   name: backend
 spec:
   type: ClusterIP
+  #sessionAffinity: ClientIP
   ports:
     - targetPort: 80
       port: 80
   selector:
-    type: backend 
+    type: backend

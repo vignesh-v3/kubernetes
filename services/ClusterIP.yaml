@@ -22,3 +22,5 @@ spec:
       port: 80
   selector:
     type: backend
+    
+#note: without selector, endpoints object will not get created

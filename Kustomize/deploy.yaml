@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mydeploy
+spec:
+  template:
+    metadata:
+      labels:
+        app: ghost
+    spec:
+      containers:
+      - image: ghost
+        name: ghost
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ghost
+

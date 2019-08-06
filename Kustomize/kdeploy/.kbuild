@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    category: blog
+  name: prestaging-mydeploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ghost
+      category: blog
+  template:
+    metadata:
+      labels:
+        app: ghost
+        category: blog
+        type: frontend
+    spec:
+      containers:
+      - image: ghost
+        name: ghost

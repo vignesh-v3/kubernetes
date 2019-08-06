@@ -1,0 +1,15 @@
+namePrefix:
+  prestaging-
+
+replicas:
+  - name: mydeploy
+    count: 5
+
+commonLabels:
+  category: blog
+
+resources:
+  - deploy.yaml
+
+patches:
+  - deploy-patch.yaml

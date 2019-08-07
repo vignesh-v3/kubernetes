@@ -1,0 +1,8 @@
+{
+  "apiVersion": "policy/v1beta1",
+  "kind": "Eviction",
+  "metadata": {
+    "name": "nginx-7db9fccd9b-6zhkm",
+    "namespace": "default"
+  }
+}

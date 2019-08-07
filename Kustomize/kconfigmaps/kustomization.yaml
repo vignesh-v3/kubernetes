@@ -1,0 +1,21 @@
+nameSuffix: -v3
+
+resources:
+  - deploy.yaml
+
+configMapGenerator:
+- name: app-config
+  files:
+  - app.ini
+
+- name: java-vars
+  literals:
+  - JAVA_HOME=/usr/java/jre1.6.0_04
+
+patchesJson6902:
+- target:
+    group: extensions
+    version: v1beta1
+    kind: Deployment
+    name: mydeploy
+  path: deployment-patch.yaml 

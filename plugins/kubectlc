@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+kubectl "$@" 2>&1 | lolcat

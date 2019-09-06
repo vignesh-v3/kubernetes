@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts: 
+    - name: awstest
+      mountPath: /test
+  volumes:
+  - name: awstest
+    persistentVolumeClaim:
+      claimName: mypvc
+

@@ -1,0 +1,28 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: {{ template "myapp.name" . }}
+  name: nginx
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      run: {{ template "myapp.name" . }}
+  template:
+    metadata:
+      labels:
+        run: {{ template "myapp.name" . }}
+    spec:
+     containers:
+        - image: nginx
+          name: {{ .Values.image.repository }}
+          volumeMounts:
+            - name: config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+     volumes:
+     - name: config
+       configMap:
+         name: nginx-config

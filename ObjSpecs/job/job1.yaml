@@ -1,13 +1,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-   name: pytestjob
-   spec:
-     template:
-       spec:
-         containers:
-            - name: pythonJob
-              image: torg.jfrog.io/test-pyrun:1314
-              command: ["python3", "-m", "unittest", "test_"]
-              restartPolicy: Never      
-
+   name: py-job
+spec:
+  completions: 3
+  template:
+    spec:
+      containers:
+        - name: python-job
+          image: torg.jfrog.io/test-pyrun:1314
+          command: ["python3", "-m", "unittest", "test_sanity.py"]
+      restartPolicy: Never 

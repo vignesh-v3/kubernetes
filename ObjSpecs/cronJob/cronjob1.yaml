@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mycj
+spec:
+  schedule: "*/1 * * * *"
+  startingDeadlineSeconds: 20
+  jobTemplate:
+    spec:
+      completions: 3
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo "hello world"
+          restartPolicy: OnFailure
+       

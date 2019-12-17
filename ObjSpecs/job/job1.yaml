@@ -4,6 +4,7 @@ metadata:
    name: py-job
 spec:
   completions: 3
+  backoffLimit: 10 #This is so the job does not quit before it succeeds
   template:
     spec:
       containers:

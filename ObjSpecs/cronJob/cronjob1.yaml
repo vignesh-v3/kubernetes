@@ -4,7 +4,7 @@ metadata:
   name: mycj
 spec:
   schedule: "*/1 * * * *"
-  startingDeadlineSeconds: 20
+  startingDeadlineSeconds: 20 # considered failure if job doesnt start in 20 seconds
   jobTemplate:
     spec:
       completions: 3

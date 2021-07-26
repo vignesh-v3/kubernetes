@@ -3,15 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    ingress.kubernetes.io/rewrite-target: /
 spec:
- tls:
-  - hosts:
-    - morningclass.tk
-    secretName: mykey
-
  rules:
   - http:
       paths:
